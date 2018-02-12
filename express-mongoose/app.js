@@ -30,14 +30,21 @@ var kusnadi = new User({
   phone: '085780621341'
 })
 
-kusnadi.save(function(err){
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('data saved');    
+
+app.get('/saveCollection', function(req, res){
+  var response = {
+    status: 10,
+    message: 'Gagal'
   }
 
+  kusnadi.save(function(err){  
+    if (!err) {
+      response.status = 0
+      response.message = 'Sukses'
+    }
+  })
+
+  res.send(response);
 })
-// app.get('/', function(req, res){
-//   var kusnadi
-// })
+
+app.listen(7071, () => console.log('Example app listening on port 7071!'))
