@@ -1,7 +1,7 @@
 {
-  "name": "test",
+  "name": "express-mongoose",
   "version": "0.0.1",
-  "description": "my first socket.io app",
+  "description": "Express JS with Mongoose",
   "dependencies": {
     "nodemon": "^1.12.1",
     "express": "^4.16.2",
