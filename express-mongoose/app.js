@@ -31,9 +31,12 @@ var kusnadi = new User({
 })
 
 kusnadi.save(function(err){
-  if (err) return handleError(err);
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('data saved');    
+  }
 
-  console.log('data saved');
 })
 // app.get('/', function(req, res){
 //   var kusnadi
