@@ -7,21 +7,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-app.get('/saveCollection', function(req, res){
+app.post('/users', function(req, res){
   let response = {
     status: 10,
     message: 'Gagal'
   }
   
-  let user = new db.user({
-    username: 'kusnadi',
-    password: 'admin',
-    name: 'Kusnadi',
-    email: 'kus.underdos@gmail.com',
-    phone: '085780621341',
-    frinds: [],
-    groups: []
-  })
+  let user = new db.user(req.body)
 
   user.save(function(err){  
     if (!err) {
