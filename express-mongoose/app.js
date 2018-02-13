@@ -21,6 +21,7 @@ app.post('/users', function(req, res){
       response.message = 'Sukses'
       res.send(response)
     } else {
+      response.message = response.message+", "+err
       res.send(response);
     }
   })
