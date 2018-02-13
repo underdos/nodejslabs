@@ -6,15 +6,14 @@ const db = require('./models')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 app.post('/users', function(req, res){
   let response = {
     status: 10,
     message: 'Gagal',
     data: {}
   }
-  
-  user.save(function(err){  
+
+  db.user.create(req.body, function(err){  
     if (!err) {
       response.status = 0
       response.message = 'Sukses'
@@ -28,7 +27,7 @@ app.post('/users', function(req, res){
 })
 
 app.get('/users', function(req, res){
-
+  
 })
 
 app.listen(7071, () => console.log('Example app listening on port 7071!'))
