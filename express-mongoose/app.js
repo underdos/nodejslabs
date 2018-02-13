@@ -27,7 +27,22 @@ app.post('/users', function(req, res){
 })
 
 app.get('/users', function(req, res){
-  
+  let response = {
+    status: 10,
+    message: 'Gagal',
+    data: {}
+  }
+  db.user.find({}, function(err, result){
+    if(!err) {
+      response.status = 0
+      response.message = 'Sukses'
+      response.data = result
+      res.send(response)
+    } else {
+      response.message = response.message+", "+err.errmsg
+      res.send(response);
+    }
+  })
 })
 
 app.listen(7071, () => console.log('Example app listening on port 7071!'))
