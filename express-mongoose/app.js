@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const db = require('./models')
 
-var kusnadi = new db.User({
+var kusnadi = new db.user({
   username: 'kusnadi',
   password: 'admin',
   name: 'Kusnadi',
