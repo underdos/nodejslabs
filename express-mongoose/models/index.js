@@ -11,10 +11,10 @@ mongoose.connection.once('open', function() {
 });
 
 var userSchema = new Schema({
-  username: String,
+  username: {type: String, unique: true},
   password: String,
   name: String,
-  email: String,
+  email: {type: String, unique: true},
   phone: String,
   friends: [String],
   groups: [String]
