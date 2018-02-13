@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
+var bodyParser = require('body-parser')
 const db = require('./models')
 
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.get('/saveCollection', function(req, res){
