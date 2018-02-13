@@ -15,7 +15,9 @@ var userSchema = new Schema({
   password: String,
   name: String,
   email: String,
-  phone: String
+  phone: String,
+  friends: [],
+  groups: []
 })
 
 var User = mongoose.model('Users', userSchema)

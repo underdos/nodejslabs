@@ -7,7 +7,9 @@ var kusnadi = new db.user({
   password: 'admin',
   name: 'Kusnadi',
   email: 'kus.underdos@gmail.com',
-  phone: '085780621341'
+  phone: '085780621341',
+  frinds: [],
+  groups: []
 })
 
 app.get('/saveCollection', function(req, res){
