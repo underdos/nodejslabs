@@ -16,12 +16,17 @@ var userSchema = new Schema({
   name: String,
   email: String,
   phone: String,
-  friends: [],
-  groups: []
+  friends: [String],
+  groups: [String]
 })
 
-var User = mongoose.model('Users', userSchema)
+var messageSchema = new Schema({
+  date: { type: Date, default: Date.now },
+  body: String,
+  belongsTo: [ { userId: String, status: Number } ]
+})
 
-db.user = User
+db.user = mongoose.model('Users', userSchema)
+db.messages = mongoose.model('Messages', messageSchema)
 
 module.exports = db
