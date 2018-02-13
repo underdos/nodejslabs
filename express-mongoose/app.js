@@ -1,28 +1,8 @@
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose')
+const db = require('models')
 
-mongoose.connect('mongodb://chat:admin@172.17.0.2:27017/chat');
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("we're connected!")
-});
-
-var Schema = mongoose.Schema
-
-var userSchema = new Schema({
-  username: String,
-  password: String,
-  name: String,
-  email: String,
-  phone: String
-})
-
-var User = mongoose.model('User', userSchema)
-
-var kusnadi = new User({
+var kusnadi = new db.User({
   username: 'kusnadi',
   password: 'admin',
   name: 'Kusnadi',
@@ -32,7 +12,7 @@ var kusnadi = new User({
 
 
 app.get('/saveCollection', function(req, res){
-  var response = {
+  let response = {
     status: 10,
     message: 'Gagal'
   }
