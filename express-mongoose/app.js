@@ -10,7 +10,6 @@ var kusnadi = new db.user({
   phone: '085780621341'
 })
 
-
 app.get('/saveCollection', function(req, res){
   let response = {
     status: 10,
