@@ -13,11 +13,11 @@ app.post('/users', function(req, res){
     data: {}
   }
 
-  db.user.create(req.body, function(err){  
+  db.user.create(req.body, function(err, result){  
     if (!err) {
       response.status = 0
       response.message = 'Sukses'
-      response.data = user
+      response.data = result
       res.send(response)
     } else {
       response.message = response.message+", "+err.errmsg
