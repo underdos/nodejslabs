@@ -10,21 +10,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/users', function(req, res){
   let response = {
     status: 10,
-    message: 'Gagal'
+    message: 'Gagal',
+    data: {}
   }
   
-  let user = new db.user(req.body)
-
   user.save(function(err){  
     if (!err) {
-      response.status = 10
+      response.status = 0
       response.message = 'Sukses'
+      response.data = user
       res.send(response)
     } else {
       response.message = response.message+", "+err.errmsg
       res.send(response);
     }
   })
+})
+
+app.get('/users', function(req, res){
 
 })
 
