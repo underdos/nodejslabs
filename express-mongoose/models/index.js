@@ -18,7 +18,7 @@ var userSchema = new Schema({
   phone: String
 })
 
-var User = mongoose.model('Test', userSchema)
+var User = mongoose.model('Users', userSchema)
 
 db.user = User
 
